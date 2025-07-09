@@ -1,0 +1,6 @@
+Flask
+speechrecognition
+gtts
+google-generativeai
+tinydb
+gunicorn

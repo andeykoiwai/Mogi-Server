@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mogi-flask-server
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn SERVER8_F:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
