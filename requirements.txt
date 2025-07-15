@@ -4,3 +4,4 @@ gtts
 google-generativeai
 tinydb
 gunicorn
+requests
