@@ -1565,6 +1565,26 @@ def list_serials():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/clearAudio', methods=['POST'])
+def clear_audio():
+    deleted_files = []
+    try:
+        for filename in os.listdir("."):
+            if filename.endswith(".wav"):
+                os.remove(filename)
+                deleted_files.append(filename)
+        return jsonify({
+            "status": "ok",
+            "message": "File .wav berhasil dihapus",
+            "deleted_files": deleted_files
+        }), 200
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+
 if __name__ == '__main__':
     # Create databases if they don't exist
     create_databases()
