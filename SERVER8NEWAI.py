@@ -32,7 +32,7 @@ comm_log_db = TinyDB(COMM_LOG_DB)
 
 # Setel API key secara manual (hanya untuk testing)
 # GROQ setup
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 
@@ -749,7 +749,8 @@ def upload_audio():
                             "model": GROQ_MODEL,
                             "messages": [
                                 {"role": "user", "content": "jawab dengan singkat, " + esp_user}
-                            ]
+                            ],"max_tokens": 30,
+                                "temperature": 0.3
                         }
                         res = requests.post(GROQ_API_URL, headers=headers, json=data)
                         res.raise_for_status()
